@@ -1,0 +1,13 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "TodoModule.Core": "1.0.0-*",
+    "Abp.AutoMapper": "1.4.1",
+    "Abp.EntityFramework": "1.4.1"
+  },
+
+  "frameworks": {
+    "net461": {}
+  }
+}

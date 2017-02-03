@@ -7,7 +7,7 @@ using TodoModule.Web.Navigation;
 
 namespace TodoModule.Web
 {
-    [DependsOn(typeof(AbpAspNetCoreModule), typeof(TodoEntityFrameworkModule))]
+    [DependsOn(typeof(AbpAspNetCoreModule), typeof(TodoApplicationModule), typeof(TodoEntityFrameworkModule))]
     public class TodoWebModule : AbpModule
     {
         public override void PreInitialize()

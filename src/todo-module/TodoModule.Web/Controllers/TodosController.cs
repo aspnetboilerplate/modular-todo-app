@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Abp.Application.Services.Dto;
 using Abp.AspNetCore.Mvc.Controllers;
 using Abp.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -8,18 +9,20 @@ namespace TodoModule.Web.Controllers
 {
     public class TodosController : AbpController
     {
-        private readonly IRepository<TodoItem> _todoItemsRepository;
+        private readonly ITodoAppService _todoAppService;
 
-        public TodosController(IRepository<TodoItem> todoItemsRepository)
+        public TodosController(ITodoAppService todoAppService)
         {
-            _todoItemsRepository = todoItemsRepository;
+            _todoAppService = todoAppService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var tasks = await _todoItemsRepository.GetAllListAsync();
+            var output = await _todoAppService.GetAll(
+                new PagedAndSortedResultRequestDto()
+            );
 
-            return View(tasks);
+            return View(output);
         }
     }
 }

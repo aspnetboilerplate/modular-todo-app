@@ -2,11 +2,12 @@
 using Abp.AspNetCore;
 using Abp.Modules;
 using Abp.Resources.Embedded;
+using TodoModule.EntityFramework;
 using TodoModule.Web.Navigation;
 
 namespace TodoModule.Web
 {
-    [DependsOn(typeof(AbpAspNetCoreModule))]
+    [DependsOn(typeof(AbpAspNetCoreModule), typeof(TodoEntityFrameworkModule))]
     public class TodoWebModule : AbpModule
     {
         public override void PreInitialize()

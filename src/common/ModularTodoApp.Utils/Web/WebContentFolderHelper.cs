@@ -12,7 +12,7 @@ namespace ModularTodoApp.Web
     {
         public static string CalculateContentRootFolder()
         {
-            var coreAssemblyDirectoryPath = Path.GetDirectoryName(typeof(ModularTodoAppCoreModule).Assembly.Location);
+            var coreAssemblyDirectoryPath = Path.GetDirectoryName(typeof(WebContentDirectoryFinder).Assembly.Location);
             if (coreAssemblyDirectoryPath == null)
             {
                 throw new ApplicationException("Could not find location of ModularTodoApp.Core assembly!");

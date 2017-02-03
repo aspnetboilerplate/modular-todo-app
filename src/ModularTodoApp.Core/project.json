@@ -13,7 +13,8 @@
     "Microsoft.Extensions.Configuration.UserSecrets": "1.1.0",
     "System.Collections.Immutable": "1.3.1",
     "Abp": "1.4.1",
-    "Abp.Zero": "1.4.0"
+    "Abp.Zero": "1.4.0",
+    "ModularTodoApp.Utils": "1.0.0.0-*"
   },
 
   "frameworks": {

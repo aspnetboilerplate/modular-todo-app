@@ -1,22 +1,23 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
-using Abp.Zero.EntityFramework;
+using Abp.EntityFramework;
 using Microsoft.Extensions.Configuration;
-using ModularTodoApp.Authorization.Roles;
 using ModularTodoApp.Configuration;
-using ModularTodoApp.MultiTenancy;
-using ModularTodoApp.Users;
 using ModularTodoApp.Web;
+using TodoModule.Todos;
+using TodoModule.Users;
 
-namespace ModularTodoApp.EntityFramework
+namespace TodoModule.EntityFramework
 {
-    //[DbConfigurationType(typeof(ModularTodoAppDbConfiguration))]
-    public class ModularTodoAppDbContext : AbpZeroDbContext<Tenant, Role, User>
+    //[DbConfigurationType(typeof(TodoModuleDbConfiguration))]
+    public class TodoDbContext : AbpDbContext
     {
-        /* Define an IDbSet for each entity of the application */
+        public DbSet<TodoItem> TodoItems { get; set; }
+
+        public DbSet<TodoUser> TodoUsers { get; set; }
 
         /* Default constructor is needed for EF command line tool. */
-        public ModularTodoAppDbContext()
+        public TodoDbContext()
             : base(GetConnectionString())
         {
 
@@ -29,36 +30,36 @@ namespace ModularTodoApp.EntityFramework
                 );
 
             return configuration.GetConnectionString(
-                ModularTodoAppConsts.ConnectionStringName
+                "Default"
                 );
         }
 
         /* This constructor is used by ABP to pass connection string.
          * Notice that, actually you will not directly create an instance of ModularTodoAppDbContext since ABP automatically handles it.
          */
-        public ModularTodoAppDbContext(string nameOrConnectionString)
+        public TodoDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
 
         }
 
         /* This constructor is used in tests to pass a fake/mock connection. */
-        public ModularTodoAppDbContext(DbConnection dbConnection)
+        public TodoDbContext(DbConnection dbConnection)
             : base(dbConnection, true)
         {
 
         }
 
-        public ModularTodoAppDbContext(DbConnection dbConnection, bool contextOwnsConnection)
+        public TodoDbContext(DbConnection dbConnection, bool contextOwnsConnection)
             : base(dbConnection, contextOwnsConnection)
         {
 
         }
     }
 
-    //public class ModularTodoAppDbConfiguration : DbConfiguration
+    //public class TodoModuleDbConfiguration : DbConfiguration
     //{
-    //    public ModularTodoAppDbConfiguration()
+    //    public TodoModuleDbConfiguration()
     //    {
     //        SetProviderServices(
     //            "System.Data.SqlClient",

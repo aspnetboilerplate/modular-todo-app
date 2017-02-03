@@ -1,9 +1,15 @@
-﻿@{
+﻿@model List<TodoModule.Todos.TodoItem>
+@{
     //ViewBag.CurrentPageName = PageNames.Home; //The menu item will be active for this page.
 }
 <h1>Task List</h1>
 <div class="row">
     <div class="col-md-12">
-        TODO ...
+        <ul>
+            @foreach (var todo in Model)
+            {
+                <li>@todo.Text</li>
+            }
+        </ul>
     </div>
 </div>

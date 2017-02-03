@@ -1,13 +1,25 @@
-﻿using Abp.AspNetCore.Mvc.Controllers;
+﻿using System.Threading.Tasks;
+using Abp.AspNetCore.Mvc.Controllers;
+using Abp.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using TodoModule.Todos;
 
 namespace TodoModule.Web.Controllers
 {
     public class TodosController : AbpController
     {
-        public IActionResult Index()
+        private readonly IRepository<TodoItem> _todoItemsRepository;
+
+        public TodosController(IRepository<TodoItem> todoItemsRepository)
         {
-            return View();
+            _todoItemsRepository = todoItemsRepository;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var tasks = await _todoItemsRepository.GetAllListAsync();
+
+            return View(tasks);
         }
     }
 }

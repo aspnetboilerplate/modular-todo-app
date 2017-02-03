@@ -1,6 +1,7 @@
-﻿@model Abp.Application.Services.Dto.PagedResultDto<TodoModule.Todos.Dto.TodoItemDto>
+﻿@using TodoModule.Web.Navigation
+@model Abp.Application.Services.Dto.PagedResultDto<TodoModule.Todos.Dto.TodoItemDto>
 @{
-    //ViewBag.CurrentPageName = PageNames.Home; //The menu item will be active for this page.
+    ViewBag.CurrentPageName = TodoAppPageNames.Tasks; //The menu item will be active for this page.
 }
 <h1>Task List</h1>
 <div class="row">

@@ -58,6 +58,7 @@ namespace ModularTodoApp.Web.Startup
             AuthConfigurer.Configure(app, _appConfiguration);
 
             app.UseStaticFiles();
+            app.UseEmbeddedFiles();
 
             //Integrate to OWIN
             app.UseAppBuilder(ConfigureOwinServices);

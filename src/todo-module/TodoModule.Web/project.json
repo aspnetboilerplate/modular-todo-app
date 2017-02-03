@@ -1,0 +1,39 @@
+﻿{
+  "dependencies": {
+    "Abp.AspNetCore": "1.4.1",
+    "Microsoft.AspNetCore.Razor.Tools": {
+      "version": "1.1.0-preview4-final",
+      "type": "build"
+    },
+    "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
+      "version": "1.1.0-preview4-final",
+      "type": "build"
+    },
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
+      "version": "1.1.0-preview4-final",
+      "type": "build"
+    }
+  },
+
+  "tools": {
+    "Microsoft.AspNetCore.Razor.Tools": "1.1.0-preview4-final",
+    "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
+      "version": "1.1.0-preview4-final",
+      "imports": [
+        "portable-net45+win8"
+      ]
+    }
+  },
+
+  "frameworks": {
+    "net461": {}
+  },
+
+  "buildOptions": {
+    "embed": {
+      "include": [
+        "Views/**/*.*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "Abp.AspNetCore": "1.4.1"
+  },
+
+  "tools": {
+  },
+
+  "frameworks": {
+    "net461": { }
+  }
+}

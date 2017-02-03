@@ -7,13 +7,15 @@ using ModularTodoApp.EntityFramework;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Abp.Zero.Configuration;
+using TodoModule.Web;
 
 namespace ModularTodoApp.Web.Startup
 {
     [DependsOn(
         typeof(ModularTodoAppApplicationModule), 
         typeof(ModularTodoAppEntityFrameworkModule), 
-        typeof(AbpAspNetCoreModule))]
+        typeof(AbpAspNetCoreModule),
+        typeof(TodoWebModule))]
     public class ModularTodoAppWebModule : AbpModule
     {
         private readonly IConfigurationRoot _appConfiguration;

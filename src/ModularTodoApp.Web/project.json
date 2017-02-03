@@ -4,7 +4,10 @@
   "dependencies": {
     "ModularTodoApp.Application": "1.0.0.0-*",
     "ModularTodoApp.EntityFramework": "1.0.0.0-*",
-    "Microsoft.AspNetCore.Razor.Tools": "1.1.0-preview4-final",
+    "Microsoft.AspNetCore.Razor.Tools": {
+      "version": "1.1.0-preview4-final",
+      "type": "build"
+    },
     "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
       "version": "1.1.0-preview4-final",
       "type": "build"
@@ -37,7 +40,8 @@
     "Abp.Owin": "1.4.1",
     "Abp.RedisCache": "1.4.1",
     "Abp.Web.SignalR": "1.4.1",
-    "Microsoft.AspNetCore.Mvc": "1.1.1"
+    "Microsoft.AspNetCore.Mvc": "1.1.1",
+    "TodoModule.Web": "1.0.0-*"
   },
 
   "tools": {

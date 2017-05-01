@@ -9,6 +9,7 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>ModularTodoApp</RootNamespace>
+    <UserSecretsId>ModularTodoApp-AC00DFC1-6A82-4859-126A-4C46C9FE0329</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,7 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <AssemblyName>TodoModule.Web</AssemblyName>
     <PackageId>TodoModule.Web</PackageId>
-    <RootNamespace>TodoModule</RootNamespace>
+    <RootNamespace>TodoModule.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

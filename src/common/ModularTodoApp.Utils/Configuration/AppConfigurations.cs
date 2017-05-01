@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using Abp.Extensions;
+using Abp.Reflection.Extensions;
 using Microsoft.Extensions.Configuration;
 
 namespace ModularTodoApp.Configuration
@@ -37,7 +38,7 @@ namespace ModularTodoApp.Configuration
 
             if (addUserSecrets)
             {
-                builder.AddUserSecrets();
+                builder.AddUserSecrets(typeof(AppConfigurations).GetAssembly());
             }
 
             return builder.Build();

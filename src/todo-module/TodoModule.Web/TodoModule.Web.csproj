@@ -4,6 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <AssemblyName>TodoModule.Web</AssemblyName>
     <PackageId>TodoModule.Web</PackageId>
+    <RootNamespace>TodoModule</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Abp.AspNetCore" Version="1.4.1" />
+    <PackageReference Include="Abp.AspNetCore" Version="2.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>

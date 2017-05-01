@@ -1,6 +1,0 @@
-{
-  "projects": [ "src", "test", "src/todo-module", "src/common" ],
-  "sdk": {
-    
-  }
-}

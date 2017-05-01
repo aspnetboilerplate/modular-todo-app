@@ -1,42 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8326CDCE-1AB4-4188-96E1-640A068AE3AE}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ModularTodoApp.Web", "src\ModularTodoApp.Web\ModularTodoApp.Web.xproj", "{A2213374-BB48-48FD-BBD4-81E6A961D866}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ModularTodoApp.Core", "src\ModularTodoApp.Core\ModularTodoApp.Core.xproj", "{0FA75A5B-AB83-4FD0-B545-279774C01E87}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ModularTodoApp.Application", "src\ModularTodoApp.Application\ModularTodoApp.Application.xproj", "{3870C648-4AEA-4B85-BA3F-F2F63B96136A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F10AA149-2626-486E-85BB-9CD5365F3016}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ModularTodoApp.Tests", "test\ModularTodoApp.Tests\ModularTodoApp.Tests.xproj", "{0D4C5D00-C144-4213-A007-4B8944113AB1}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ModularTodoApp.EntityFramework", "src\ModularTodoApp.EntityFramework\ModularTodoApp.EntityFramework.xproj", "{DC780BC4-4EAC-4C63-9052-6F3169A59FA4}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ModularTodoApp.Migrator", "src\ModularTodoApp.Migrator\ModularTodoApp.Migrator.xproj", "{880B3591-E057-46FE-B525-10BD83828B93}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "todo-module", "todo-module", "{1264C6EB-6597-444D-9BDF-2BF6494A3960}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TodoModule.Web", "src\todo-module\TodoModule.Web\TodoModule.Web.xproj", "{EAABE67C-28A1-4EE0-A855-FDED92456FE2}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TodoModule.Core", "src\todo-module\TodoModule.Core\TodoModule.Core.xproj", "{E3C3DC76-F188-40C2-81AF-062C89CDC212}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TodoModule.EntityFramework", "src\todo-module\TodoModule.EntityFramework\TodoModule.EntityFramework.xproj", "{A2B5BC1C-EE2C-451B-B164-40942563E64D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{49797AAE-E65A-48FF-9411-1C156CE183E3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ModularTodoApp.Utils", "src\common\ModularTodoApp.Utils\ModularTodoApp.Utils.xproj", "{92043606-238D-42D5-94A4-CBBC89E7D5DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularTodoApp.Web", "src\ModularTodoApp.Web\ModularTodoApp.Web.csproj", "{A2213374-BB48-48FD-BBD4-81E6A961D866}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TodoModule.Application", "src\todo-module\TodoModule.Application\TodoModule.Application.xproj", "{AD85A4B6-1199-4E13-AE72-BE4636C0087D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularTodoApp.Core", "src\ModularTodoApp.Core\ModularTodoApp.Core.csproj", "{0FA75A5B-AB83-4FD0-B545-279774C01E87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularTodoApp.Application", "src\ModularTodoApp.Application\ModularTodoApp.Application.csproj", "{3870C648-4AEA-4B85-BA3F-F2F63B96136A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularTodoApp.Tests", "test\ModularTodoApp.Tests\ModularTodoApp.Tests.csproj", "{0D4C5D00-C144-4213-A007-4B8944113AB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularTodoApp.EntityFramework", "src\ModularTodoApp.EntityFramework\ModularTodoApp.EntityFramework.csproj", "{DC780BC4-4EAC-4C63-9052-6F3169A59FA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularTodoApp.Migrator", "src\ModularTodoApp.Migrator\ModularTodoApp.Migrator.csproj", "{880B3591-E057-46FE-B525-10BD83828B93}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoModule.Web", "src\todo-module\TodoModule.Web\TodoModule.Web.csproj", "{EAABE67C-28A1-4EE0-A855-FDED92456FE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoModule.Core", "src\todo-module\TodoModule.Core\TodoModule.Core.csproj", "{E3C3DC76-F188-40C2-81AF-062C89CDC212}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoModule.EntityFramework", "src\todo-module\TodoModule.EntityFramework\TodoModule.EntityFramework.csproj", "{A2B5BC1C-EE2C-451B-B164-40942563E64D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModularTodoApp.Utils", "src\common\ModularTodoApp.Utils\ModularTodoApp.Utils.csproj", "{92043606-238D-42D5-94A4-CBBC89E7D5DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoModule.Application", "src\todo-module\TodoModule.Application\TodoModule.Application.csproj", "{AD85A4B6-1199-4E13-AE72-BE4636C0087D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,17 +88,17 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{1264C6EB-6597-444D-9BDF-2BF6494A3960} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
+		{49797AAE-E65A-48FF-9411-1C156CE183E3} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{A2213374-BB48-48FD-BBD4-81E6A961D866} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{0FA75A5B-AB83-4FD0-B545-279774C01E87} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{3870C648-4AEA-4B85-BA3F-F2F63B96136A} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{0D4C5D00-C144-4213-A007-4B8944113AB1} = {F10AA149-2626-486E-85BB-9CD5365F3016}
 		{DC780BC4-4EAC-4C63-9052-6F3169A59FA4} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{880B3591-E057-46FE-B525-10BD83828B93} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
-		{1264C6EB-6597-444D-9BDF-2BF6494A3960} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{EAABE67C-28A1-4EE0-A855-FDED92456FE2} = {1264C6EB-6597-444D-9BDF-2BF6494A3960}
 		{E3C3DC76-F188-40C2-81AF-062C89CDC212} = {1264C6EB-6597-444D-9BDF-2BF6494A3960}
 		{A2B5BC1C-EE2C-451B-B164-40942563E64D} = {1264C6EB-6597-444D-9BDF-2BF6494A3960}
-		{49797AAE-E65A-48FF-9411-1C156CE183E3} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{92043606-238D-42D5-94A4-CBBC89E7D5DC} = {49797AAE-E65A-48FF-9411-1C156CE183E3}
 		{AD85A4B6-1199-4E13-AE72-BE4636C0087D} = {1264C6EB-6597-444D-9BDF-2BF6494A3960}
 	EndGlobalSection

@@ -29,7 +29,7 @@ namespace ModularTodoApp.Web
                 directoryInfo = directoryInfo.Parent;
             }
 
-            return Path.Combine(directoryInfo.FullName, @"src\ModularTodoApp.Web");
+            return Path.Combine(directoryInfo.FullName, $"src{Path.DirectorySeparatorChar}ModularTodoApp.Web");
         }
 
         private static bool DirectoryContains(string directory, string fileName)

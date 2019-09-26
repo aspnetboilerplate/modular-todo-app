@@ -1,8 +1,8 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 using TodoModule.Todos.Dto;
 
 namespace TodoModule.Todos

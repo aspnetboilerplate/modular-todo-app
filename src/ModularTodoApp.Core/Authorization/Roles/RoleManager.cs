@@ -1,9 +1,14 @@
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using Abp.Authorization;
 using Abp.Authorization.Roles;
+using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
+using Abp.Organizations;
 using Abp.Runtime.Caching;
 using Abp.Zero.Configuration;
-using ModularTodoApp.Users;
+using ModularTodoApp.Authorization.Users;
 
 namespace ModularTodoApp.Authorization.Roles
 {
@@ -11,16 +16,27 @@ namespace ModularTodoApp.Authorization.Roles
     {
         public RoleManager(
             RoleStore store,
+            IEnumerable<IRoleValidator<Role>> roleValidators,
+            ILookupNormalizer keyNormalizer,
+            IdentityErrorDescriber errors,
+            ILogger<AbpRoleManager<Role, User>> logger,
             IPermissionManager permissionManager,
-            IRoleManagementConfig roleManagementConfig,
             ICacheManager cacheManager,
-            IUnitOfWorkManager unitOfWorkManager)
+            IUnitOfWorkManager unitOfWorkManager,
+            IRoleManagementConfig roleManagementConfig,
+            IRepository<OrganizationUnit, long> organizationUnitRepository,
+            IRepository<OrganizationUnitRole, long> organizationUnitRoleRepository)
             : base(
-                store,
-                permissionManager,
-                roleManagementConfig,
-                cacheManager,
-                unitOfWorkManager)
+                  store,
+                  roleValidators,
+                  keyNormalizer,
+                  errors, logger,
+                  permissionManager,
+                  cacheManager,
+                  unitOfWorkManager,
+                  roleManagementConfig,
+                organizationUnitRepository,
+                organizationUnitRoleRepository)
         {
         }
     }

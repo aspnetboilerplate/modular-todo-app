@@ -1,6 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using ModularTodoApp.Users;
+using ModularTodoApp.Authorization.Users;
 
 namespace ModularTodoApp.Sessions.Dto
 {

@@ -1,8 +1,8 @@
 ﻿using Abp.Application.Features;
 using Abp.Domain.Repositories;
 using Abp.MultiTenancy;
+using ModularTodoApp.Authorization.Users;
 using ModularTodoApp.Editions;
-using ModularTodoApp.Users;
 
 namespace ModularTodoApp.MultiTenancy
 {
@@ -12,14 +12,12 @@ namespace ModularTodoApp.MultiTenancy
             IRepository<Tenant> tenantRepository, 
             IRepository<TenantFeatureSetting, long> tenantFeatureRepository, 
             EditionManager editionManager,
-            IAbpZeroFeatureValueStore featureValueStore
-            ) 
+            IAbpZeroFeatureValueStore featureValueStore) 
             : base(
                 tenantRepository, 
                 tenantFeatureRepository, 
                 editionManager,
-                featureValueStore
-            )
+                featureValueStore)
         {
         }
     }

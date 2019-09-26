@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Abp.Reflection.Extensions;
 
 namespace ModularTodoApp.Web
 {
@@ -12,10 +13,10 @@ namespace ModularTodoApp.Web
     {
         public static string CalculateContentRootFolder()
         {
-            var coreAssemblyDirectoryPath = Path.GetDirectoryName(typeof(WebContentDirectoryFinder).Assembly.Location);
+            var coreAssemblyDirectoryPath = Path.GetDirectoryName(typeof(WebContentDirectoryFinder).GetAssembly().Location);
             if (coreAssemblyDirectoryPath == null)
             {
-                throw new ApplicationException("Could not find location of ModularTodoApp.Core assembly!");
+                throw new Exception("Could not find location of ModularTodoApp.Core assembly!");
             }
 
             var directoryInfo = new DirectoryInfo(coreAssemblyDirectoryPath);
@@ -23,13 +24,19 @@ namespace ModularTodoApp.Web
             {
                 if (directoryInfo.Parent == null)
                 {
-                    throw new ApplicationException("Could not find content root folder!");
+                    throw new Exception("Could not find content root folder!");
                 }
 
                 directoryInfo = directoryInfo.Parent;
             }
 
-            return Path.Combine(directoryInfo.FullName, $"src{Path.DirectorySeparatorChar}ModularTodoApp.Web");
+            var webMvcFolder = Path.Combine(directoryInfo.FullName, "src", "ModularTodoApp.Web.Mvc");
+            if (Directory.Exists(webMvcFolder))
+            {
+                return webMvcFolder;
+            }
+
+            throw new Exception("Could not find root folder of the web project!");
         }
 
         private static bool DirectoryContains(string directory, string fileName)

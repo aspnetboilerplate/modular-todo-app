@@ -1,18 +1,15 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using ModularTodoApp.Roles.Dto;
 using ModularTodoApp.Users.Dto;
 
 namespace ModularTodoApp.Users
 {
-    public interface IUserAppService : IApplicationService
+    public interface IUserAppService : IAsyncCrudAppService<UserDto, long, PagedUserResultRequestDto, CreateUserDto, UserDto>
     {
-        Task ProhibitPermission(ProhibitPermissionInput input);
+        Task<ListResultDto<RoleDto>> GetRoles();
 
-        Task RemoveFromRole(long userId, string roleName);
-
-        Task<ListResultDto<UserListDto>> GetUsers();
-
-        Task CreateUser(CreateUserInput input);
+        Task ChangeLanguage(ChangeUserLanguageDto input);
     }
 }

@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-using Abp.Configuration.Startup;
+﻿using Abp.Configuration.Startup;
 using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
+using Abp.Reflection.Extensions;
 
 namespace ModularTodoApp.Localization
 {
@@ -12,8 +12,8 @@ namespace ModularTodoApp.Localization
             localizationConfiguration.Sources.Add(
                 new DictionaryBasedLocalizationSource(ModularTodoAppConsts.LocalizationSourceName,
                     new XmlEmbeddedFileLocalizationDictionaryProvider(
-                        Assembly.GetExecutingAssembly(),
-                        "ModularTodoApp.Core.Localization.SourceFiles"
+                        typeof(ModularTodoAppLocalizationConfigurer).GetAssembly(),
+                        "ModularTodoApp.Localization.SourceFiles"
                     )
                 )
             );

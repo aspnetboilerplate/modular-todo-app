@@ -3,8 +3,8 @@ using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.MultiTenancy;
 using Abp.Runtime.Caching;
+using ModularTodoApp.Authorization.Users;
 using ModularTodoApp.MultiTenancy;
-using ModularTodoApp.Users;
 
 namespace ModularTodoApp.Features
 {
@@ -17,7 +17,8 @@ namespace ModularTodoApp.Features
             IRepository<EditionFeatureSetting, long> editionFeatureRepository, 
             IFeatureManager featureManager, 
             IUnitOfWorkManager unitOfWorkManager) 
-            : base(cacheManager, 
+            : base(
+                  cacheManager, 
                   tenantFeatureRepository, 
                   tenantRepository, 
                   editionFeatureRepository, 

@@ -1,17 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <AssemblyName>ModularTodoApp.Migrator</AssemblyName>
+    <RootNamespace>ModularTodoApp.Migrator</RootNamespace>
     <OutputType>Exe</OutputType>
-    <PackageId>ModularTodoApp.Migrator</PackageId>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <RootNamespace>ModularTodoApp</RootNamespace>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,16 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ModularTodoApp.EntityFramework\ModularTodoApp.EntityFramework.csproj" />
+    <PackageReference Include="Abp.Castle.Log4Net" Version="4.9.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Abp.Castle.Log4Net" Version="2.0.2" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
+    <ProjectReference Include="..\ModularTodoApp.Core\ModularTodoApp.Core.csproj" />
+    <ProjectReference Include="..\ModularTodoApp.EntityFrameworkCore\ModularTodoApp.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

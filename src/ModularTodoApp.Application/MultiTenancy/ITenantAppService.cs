@@ -1,14 +1,11 @@
-﻿using System.Threading.Tasks;
-using Abp.Application.Services;
+﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using ModularTodoApp.MultiTenancy.Dto;
 
 namespace ModularTodoApp.MultiTenancy
 {
-    public interface ITenantAppService : IApplicationService
+    public interface ITenantAppService : IAsyncCrudAppService<TenantDto, int, PagedTenantResultRequestDto, CreateTenantDto, TenantDto>
     {
-        ListResultDto<TenantListDto> GetTenants();
-
-        Task CreateTenant(CreateTenantInput input);
     }
 }
+

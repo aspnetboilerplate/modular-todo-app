@@ -1,18 +1,24 @@
 ﻿using System;
+using Abp;
 using Abp.Authorization;
-using Abp.Authorization.Users;
+using Abp.Dependency;
 using Abp.UI;
 
 namespace ModularTodoApp.Authorization
 {
-    public class AbpLoginResultTypeHelper : ModularTodoAppAppServiceBase
+    public class AbpLoginResultTypeHelper : AbpServiceBase, ITransientDependency
     {
+        public AbpLoginResultTypeHelper()
+        {
+            LocalizationSourceName = ModularTodoAppConsts.LocalizationSourceName;
+        }
+
         public Exception CreateExceptionForFailedLoginAttempt(AbpLoginResultType result, string usernameOrEmailAddress, string tenancyName)
         {
             switch (result)
             {
                 case AbpLoginResultType.Success:
-                    return new ApplicationException("Don't call this method with a success result!");
+                    return new Exception("Don't call this method with a success result!");
                 case AbpLoginResultType.InvalidUserNameOrEmailAddress:
                 case AbpLoginResultType.InvalidPassword:
                     return new UserFriendlyException(L("LoginFailed"), L("InvalidUserNameOrPassword"));
@@ -24,7 +30,9 @@ namespace ModularTodoApp.Authorization
                     return new UserFriendlyException(L("LoginFailed"), L("UserIsNotActiveAndCanNotLogin", usernameOrEmailAddress));
                 case AbpLoginResultType.UserEmailIsNotConfirmed:
                     return new UserFriendlyException(L("LoginFailed"), L("UserEmailIsNotConfirmedAndCanNotLogin"));
-                default: //Can not fall to default actually. But other result types can be added in the future and we may forget to handle it
+                case AbpLoginResultType.LockedOut:
+                    return new UserFriendlyException(L("LoginFailed"), L("UserLockedOutMessage"));
+                default: // Can not fall to default actually. But other result types can be added in the future and we may forget to handle it
                     Logger.Warn("Unhandled login fail reason: " + result);
                     return new UserFriendlyException(L("LoginFailed"));
             }
@@ -35,7 +43,7 @@ namespace ModularTodoApp.Authorization
             switch (result)
             {
                 case AbpLoginResultType.Success:
-                    throw new ApplicationException("Don't call this method with a success result!");
+                    throw new Exception("Don't call this method with a success result!");
                 case AbpLoginResultType.InvalidUserNameOrEmailAddress:
                 case AbpLoginResultType.InvalidPassword:
                     return L("InvalidUserNameOrPassword");
@@ -47,7 +55,7 @@ namespace ModularTodoApp.Authorization
                     return L("UserIsNotActiveAndCanNotLogin", usernameOrEmailAddress);
                 case AbpLoginResultType.UserEmailIsNotConfirmed:
                     return L("UserEmailIsNotConfirmedAndCanNotLogin");
-                default: //Can not fall to default actually. But other result types can be added in the future and we may forget to handle it
+                default: // Can not fall to default actually. But other result types can be added in the future and we may forget to handle it
                     Logger.Warn("Unhandled login fail reason: " + result);
                     return L("LoginFailed");
             }

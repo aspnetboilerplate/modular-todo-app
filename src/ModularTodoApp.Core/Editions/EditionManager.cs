@@ -13,8 +13,7 @@ namespace ModularTodoApp.Editions
             IAbpZeroFeatureValueStore featureValueStore)
             : base(
                 editionRepository,
-                featureValueStore
-            )
+                featureValueStore)
         {
         }
     }

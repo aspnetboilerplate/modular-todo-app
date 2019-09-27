@@ -1,12 +1,13 @@
-﻿using System.Reflection;
-using Abp.Modules;
+﻿using Abp.Modules;
+using Abp.Reflection.Extensions;
 using Abp.Timing;
 using Abp.Zero;
-using ModularTodoApp.Localization;
 using Abp.Zero.Configuration;
-using ModularTodoApp.MultiTenancy;
 using ModularTodoApp.Authorization.Roles;
-using ModularTodoApp.Users;
+using ModularTodoApp.Authorization.Users;
+using ModularTodoApp.Configuration;
+using ModularTodoApp.Localization;
+using ModularTodoApp.MultiTenancy;
 using ModularTodoApp.Timing;
 
 namespace ModularTodoApp
@@ -18,23 +19,25 @@ namespace ModularTodoApp
         {
             Configuration.Auditing.IsEnabledForAnonymousUsers = true;
 
-            //Declare entity types
+            // Declare entity types
             Configuration.Modules.Zero().EntityTypes.Tenant = typeof(Tenant);
             Configuration.Modules.Zero().EntityTypes.Role = typeof(Role);
             Configuration.Modules.Zero().EntityTypes.User = typeof(User);
 
             ModularTodoAppLocalizationConfigurer.Configure(Configuration.Localization);
 
-            //Enable this line to create a multi-tenant application.
-            Configuration.MultiTenancy.IsEnabled = true;
+            // Enable this line to create a multi-tenant application.
+            Configuration.MultiTenancy.IsEnabled = ModularTodoAppConsts.MultiTenancyEnabled;
 
-            //Configure roles
+            // Configure roles
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
+
+            Configuration.Settings.Providers.Add<AppSettingProvider>();
         }
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(ModularTodoAppCoreModule).GetAssembly());
         }
 
         public override void PostInitialize()

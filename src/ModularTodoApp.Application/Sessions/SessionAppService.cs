@@ -1,12 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Abp.Auditing;
-using Abp.Authorization;
-using Abp.AutoMapper;
 using ModularTodoApp.Sessions.Dto;
 
 namespace ModularTodoApp.Sessions
 {
-    [AbpAuthorize]
     public class SessionAppService : ModularTodoAppAppServiceBase, ISessionAppService
     {
         [DisableAuditing]
@@ -14,12 +12,22 @@ namespace ModularTodoApp.Sessions
         {
             var output = new GetCurrentLoginInformationsOutput
             {
-                User = (await GetCurrentUserAsync()).MapTo<UserLoginInfoDto>()
+                Application = new ApplicationInfoDto
+                {
+                    Version = AppVersionHelper.Version,
+                    ReleaseDate = AppVersionHelper.ReleaseDate,
+                    Features = new Dictionary<string, bool>()
+                }
             };
 
             if (AbpSession.TenantId.HasValue)
             {
-                output.Tenant = (await GetCurrentTenantAsync()).MapTo<TenantLoginInfoDto>();
+                output.Tenant = ObjectMapper.Map<TenantLoginInfoDto>(await GetCurrentTenantAsync());
+            }
+
+            if (AbpSession.UserId.HasValue)
+            {
+                output.User = ObjectMapper.Map<UserLoginInfoDto>(await GetCurrentUserAsync());
             }
 
             return output;

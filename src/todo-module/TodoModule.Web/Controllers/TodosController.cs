@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AspNetCore.Mvc.Controllers;
-using Abp.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using TodoModule.Todos;
 

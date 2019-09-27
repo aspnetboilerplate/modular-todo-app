@@ -1,12 +1,11 @@
-using System.Data.Entity;
-using System.Reflection;
+using Microsoft.Extensions.Configuration;
+using Castle.MicroKernel.Registration;
 using Abp.Events.Bus;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
-using Castle.MicroKernel.Registration;
-using Microsoft.Extensions.Configuration;
 using ModularTodoApp.Configuration;
-using ModularTodoApp.EntityFramework;
+using ModularTodoApp.EntityFrameworkCore;
+using ModularTodoApp.Migrator.DependencyInjection;
 
 namespace ModularTodoApp.Migrator
 {
@@ -15,33 +14,34 @@ namespace ModularTodoApp.Migrator
     {
         private readonly IConfigurationRoot _appConfiguration;
 
-        public ModularTodoAppMigratorModule()
+        public ModularTodoAppMigratorModule(ModularTodoAppEntityFrameworkModule abpProjectNameEntityFrameworkModule)
         {
+            abpProjectNameEntityFrameworkModule.SkipDbSeed = true;
+
             _appConfiguration = AppConfigurations.Get(
-                typeof(ModularTodoAppMigratorModule).Assembly.GetDirectoryPathOrNull()
+                typeof(ModularTodoAppMigratorModule).GetAssembly().GetDirectoryPathOrNull()
             );
         }
 
         public override void PreInitialize()
         {
-            Database.SetInitializer<ModularTodoAppDbContext>(null);
-
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(
                 ModularTodoAppConsts.ConnectionStringName
-                );
+            );
 
             Configuration.BackgroundJobs.IsJobExecutionEnabled = false;
-            Configuration.ReplaceService(typeof(IEventBus), () =>
-            {
-                IocManager.IocContainer.Register(
+            Configuration.ReplaceService(
+                typeof(IEventBus), 
+                () => IocManager.IocContainer.Register(
                     Component.For<IEventBus>().Instance(NullEventBus.Instance)
-                );
-            });
+                )
+            );
         }
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(ModularTodoAppMigratorModule).GetAssembly());
+            ServiceCollectionRegistrar.Register(IocManager);
         }
     }
 }

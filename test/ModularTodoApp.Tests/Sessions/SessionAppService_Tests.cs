@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using ModularTodoApp.Sessions;
 using Shouldly;
 using Xunit;
+using ModularTodoApp.Sessions;
 
 namespace ModularTodoApp.Tests.Sessions
 {
@@ -14,16 +14,16 @@ namespace ModularTodoApp.Tests.Sessions
             _sessionAppService = Resolve<ISessionAppService>();
         }
 
-        [Fact]
+        [MultiTenantFact]
         public async Task Should_Get_Current_User_When_Logged_In_As_Host()
         {
-            //Arrange
+            // Arrange
             LoginAsHostAdmin();
 
-            //Act
+            // Act
             var output = await _sessionAppService.GetCurrentLoginInformations();
 
-            //Assert
+            // Assert
             var currentUser = await GetCurrentUserAsync();
             output.User.ShouldNotBe(null);
             output.User.Name.ShouldBe(currentUser.Name);
@@ -35,10 +35,10 @@ namespace ModularTodoApp.Tests.Sessions
         [Fact]
         public async Task Should_Get_Current_User_And_Tenant_When_Logged_In_As_Tenant()
         {
-            //Act
+            // Act
             var output = await _sessionAppService.GetCurrentLoginInformations();
 
-            //Assert
+            // Assert
             var currentUser = await GetCurrentUserAsync();
             var currentTenant = await GetCurrentTenantAsync();
 

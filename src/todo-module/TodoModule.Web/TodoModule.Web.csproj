@@ -41,8 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Views\Todos\Index.cshtml" />
-    <EmbeddedResource Include="Views\Todos\Index.cshtml" />
+    <EmbeddedResource Include="Resources\**\*;Views\**\*" />
   </ItemGroup>
 
 </Project>

@@ -63,7 +63,7 @@ namespace ModularTodoApp.Web.Startup
             }
 
             app.UseStaticFiles();
-            app.UseEmbeddedFiles();
+            app.UseEmbeddedFiles(); //Allows to expose embedded files to the web!
 
             app.UseAuthentication();
 

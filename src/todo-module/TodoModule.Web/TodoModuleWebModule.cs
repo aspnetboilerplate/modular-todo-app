@@ -24,6 +24,15 @@ namespace TodoModule.Web
                     "TodoModule.Web.Views"
                 )
             );
+
+            //Must call app.UseEmbeddedFiles() at main application Configure!
+            Configuration.EmbeddedResources.Sources.Add(
+                new EmbeddedResourceSet(
+                    "/Resources/",
+                    Assembly.GetExecutingAssembly(),
+                    "TodoModule.Web.Resources"
+                    )
+                );
         }
 
         public override void Initialize()

@@ -3,6 +3,10 @@
 @{
     ViewBag.CurrentPageName = TodoAppPageNames.Tasks; //The menu item will be active for this page.
 }
+@section scripts
+{
+    <script src="~/Resources/Todos/index.js" asp-append-version="true"></script>
+}
 <h1>Task List</h1>
 <div class="row">
     <div class="col-md-12">
